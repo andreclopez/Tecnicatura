@@ -13,3 +13,7 @@ let temperaturaCelsius = 25;
 let temperaturaFahrenheit = (temperaturaCelsius * 9 / 5) + 32;
 
 console.log(temperaturaFahrenheit)
+
+// Define una variable llamada `num1` y otra llamada `num2`. 
+// Escribe una expresión que verifique si `num1` es mayor que `num2`
+// y muestra el resultado (true o false) en la consola.
