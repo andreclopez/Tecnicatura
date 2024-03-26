@@ -261,7 +261,29 @@ if(calificacion == 100){
     console.log("Reprobado")
 }
 
-//
+// 57. Define una variable `numero` y verifica si es positivo, negativo o 
+// igual a cero utilizando una declaración `if` y muestra el resultado en la 
+// consola.
+
+console.log("---- EJ 57 ----")
+
+let numero_ = 40;
+
+if(numero_ == 0){
+
+    console.log("El número es 0")
+
+}else{
+
+}if(numero_ > 0){
+
+    console.log("Positivo")
+
+}if(numero_ < 0){
+
+    console.log("Negativo")
+}
+
 // Enunciado: mostrar num pares e impares del 1 al 10
 
 // for (let i = 1 ; i ≤ 10 : i = i +1 ){
