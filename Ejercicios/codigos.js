@@ -284,6 +284,56 @@ if(numero_ == 0){
     console.log("Negativo")
 }
 
+// 58. Escribe una función llamada `esPar` que tome un número como 
+// argumento y retorne `true` si es par o `false` si es impar. Luego,
+// muestra el resultado en la consola.
+
+console.log("---- EJ 58 ----")
+
+function esPar(numero) {
+    
+    let resto = numero % 2;
+
+    return resto == 0;
+
+}
+
+let entrada = prompt("Indica el número")
+
+console.log('El numero', (entrada), 'es par?', (esPar(entrada)))
+
+// 59. Crea una variable `hora` y asígnale una hora en formato de 24 
+// horas. Escribe una estructura condicional para mostrar "Buenos días",
+// "Buenas tardes" o "Buenas noches" en función de la hora.
+
+console.log("---- EJ 59 ----")
+
+let hora = prompt("Ingrese hora")
+
+if(hora >= 0 && hora < 13 ){
+
+    console.log("Buen día")
+}else if(hora >= 13 && hora < 19){
+
+    console.log("Buenas tardes")
+}else if(hora >= 19 && hora <= 24){
+
+    console.log("Buenas noches")
+}else {
+
+    console.log("No es una hora válida")
+}
+
+
+// 60. Define tres variables `lado1`, `lado2` y `lado3` que representen
+// las longitudes de los lados de un triángulo. Escribe una estructura 
+// condicional para determinar si el triángulo es equilátero (todos los 
+// lados iguales), isósceles (dos lados iguales), o escaleno (ningún 
+// lado igual).
+
+// console.log("---- EJ 60 ----")
+
+
 // Enunciado: mostrar num pares e impares del 1 al 10
 
 // for (let i = 1 ; i ≤ 10 : i = i +1 ){
@@ -293,3 +343,5 @@ if(numero_ == 0){
 //  console.log("El numero " + i + "es impar");
 //  }
     
+
+
