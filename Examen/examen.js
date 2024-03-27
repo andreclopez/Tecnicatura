@@ -13,9 +13,40 @@ function condicionAlumno(nota){
         return "REGULAR"
     } else if (nota > 6) {
         return "PROMOCIONADO"
-    }
+}
 }
 
 let nota = parseInt(prompt("Ingrese nota"))
 
 console.log(condicionAlumno(nota))
+
+// Sin funcion 
+
+console.log("Alternativa sin función")
+
+let calificacion = nota;
+
+if(nota > 1 && nota < 4){
+
+    console.log("LIBRE")
+}
+
+if(nota > 4 && nota < 7){
+
+    console.log("REGULAR")
+}
+
+if(nota <= 10 && nota > 6){
+
+    console.log("PROMOCIONADO")
+}
+
+if(nota > 10){
+
+    console.log("Ingrese una nota válida")
+}
+
+if(nota < 1){
+
+    console.log("Ingrese uan nota válida")
+}
