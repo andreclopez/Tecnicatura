@@ -331,7 +331,70 @@ if(hora >= 0 && hora < 13 ){
 // lados iguales), isósceles (dos lados iguales), o escaleno (ningún 
 // lado igual).
 
-// console.log("---- EJ 60 ----")
+console.log("---- EJ 60 ----")
+
+let lado1 = 5;
+
+let lado2 = 2;
+
+let lado3 = 1;
+
+if(lado1 == lado2 && lado2 == lado3){
+
+    console.log("El triángulo es equilátero")
+}
+
+if(lado1 == lado2 || lado2 == lado3 || lado3 == lado1){
+
+    console.log("El triángulo es isósceles")
+}else{
+
+    console.log("El triángulo es escaleno")
+}
+
+// 61- Escribe una función llamada esPrimo que tome un número como 
+// argumento y retorne true si es primo o false si no lo es. Un número 
+// primo es aquel que solo es divisible por 1 y por sí mismo.
+
+console.log("---- EJ 61 ----")
+
+function esPrimo(nro){
+    if(nro <=1){
+        return false;
+    }
+
+    for(let i = 2; i < nro; i++){
+        if(nro % i === 0){
+            return false
+        }
+    }
+
+    return true
+}
+
+let nro = prompt("Ingrese un número")
+
+console.log(esPrimo(nro))
+
+// 62- Define una función llamada invierteCadena que tome una cadena de
+// texto como argumento y retorne una nueva cadena con los caracteres en 
+// orden inverso.
+
+console.log("---- EJ 62 ----")
+
+function invierteCadena(cadena){
+
+    let cadenaInvertida = '';
+
+    for( let i = cadena.length - 1; i >= 0; i--){
+        cadenaInvertida += cadena[i];
+    }
+    return cadenaInvertida
+}
+
+let cadena = prompt("Ingrese una cadena numerica")
+
+console.log(invierteCadena(cadena))
 
 
 // Enunciado: mostrar num pares e impares del 1 al 10
