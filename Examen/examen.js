@@ -15,12 +15,11 @@ if (nota <= 4) {
 
     console.log("Condición REGULAR")
 
-} else if (nota > 7) {
+} else if (nota > 7 && nota <= 10) {
 
     console.log("Condición PROMOCIONADO")
 
 } if(nota < 1 && nota > 10) {
 
     console.log("Ingrese una nota válida entre 0 y 10")
-
 }
