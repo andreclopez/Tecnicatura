@@ -7,17 +7,20 @@ console.log("Ejercicio simulacro")
 
 let nota = parseInt(prompt("Ingrese nota"))
 
-if(nota <= 4){
+if (nota <= 4) {
 
     console.log("Condición LIBRE")
 
-}else{
-
-if(nota > 4 && nota <= 7)
+} else if (nota > 4 && nota <= 7) {
 
     console.log("Condición REGULAR")
 
-}if(nota > 7){
+} else if (nota > 7) {
 
     console.log("Condición PROMOCIONADO")
+
+} if(nota < 1 && nota > 10) {
+
+    console.log("Ingrese una nota válida entre 0 y 10")
+
 }
