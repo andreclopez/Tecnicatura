@@ -396,7 +396,17 @@ let cadena = prompt("Ingrese una cadena numerica")
 
 console.log(invierteCadena(cadena))
 
+// 63- Crea una función llamada calcularFactorial que tome un número entero
+// positivo como argumento y retorne su factorial. El factorial de un 
+// número es el producto de todos los números enteros positivos desde 
+// 1 hasta ese número.
 
+console.log("---- EJ 63 ----")
+
+function calcularFactorial(enteroPositivo){
+
+
+}
 // Enunciado: mostrar num pares e impares del 1 al 10
 
 // for (let i = 1 ; i ≤ 10 : i = i +1 ){
