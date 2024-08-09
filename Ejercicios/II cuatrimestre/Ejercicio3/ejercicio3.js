@@ -22,4 +22,4 @@ let ocurrencias = obtenerOcurrencias(array=arrayStrings, clave=buscar)
 
 let salida = document.getElementById("resultado")
 
-salida.innerHTML = `Palabra buscada: ${buscar}, Ocurrencias: ${ocurrencias}`
+salida.innerHTML = `Palabra buscada: <strong> ${buscar} <strong>, Ocurrencias: ${ocurrencias}`
