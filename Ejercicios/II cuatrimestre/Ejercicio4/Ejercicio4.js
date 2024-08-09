@@ -30,4 +30,4 @@ let email = obtenerLista(array=arrayStrings, clave=buscar)
 // Salida
 let salida = document.getElementById("resultado")
 
-salida.innerHTML = 'Lista de emails: ${buscar}, Cantidad: $(email)'
+salida.innerHTML = `Lista de emails: ${buscar}, Cantidad: ${email}`
