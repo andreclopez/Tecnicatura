@@ -1,25 +1,21 @@
-let arrayStrings = ['remera', 'camisa', 'bermuda', 'remera', 'jeans', 'camisa', 'jeans', 'remera', 'jeans', 'remera', 'jeans', 'remera', 'jeans', 'pantalon']
+// Crea una función que tome un array de strings y un string de 
+// búsqueda, y devuelva el número de veces que el string de búsqueda
+// aparece en el array. Muestra el resultado en un elemento HTML.
 
-let buscar = 'camisa'
+// Definición del array
 
+let arrayString = ["agua con gas", "agua sin gas", "agua saborizada", "gaseosa cola", "gaseosa lima", "agua con gas", "gaseosa cola", "agua saborizada", "agua con gas", "gaseosa lima", "agua sin gas", "gaseosa cola", "agua saborizada", "agua sin gas"]
 
-function obtenerOcurrencias(array, clave) {
-    let ocurrencias = 0;
+let buscar = "agua con gas"
 
-    array.forEach(item => {
+// Definición de la función 
 
-        if (item === clave) {
+function contarOcurrencias(array) {
 
-            ocurrencias++;
+    for (let i = 0; i < array.length; i++) {
 
-        }
-
-    })
-
-    return ocurrencias;
+        arrayString = array[i];
+        
+    }
 }
-let ocurrencias = obtenerOcurrencias(array=arrayStrings, clave=buscar)
 
-let salida = document.getElementById("resultado")
-
-salida.innerHTML = `Palabra buscada: <strong> ${buscar} <strong>, Ocurrencias: ${ocurrencias}`
