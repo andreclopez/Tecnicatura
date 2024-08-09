@@ -10,12 +10,29 @@ let buscar = "agua con gas"
 
 // Definición de la función 
 
-function contarOcurrencias(array) {
+function contarOcurrencias(array, buscar) {
+
+    let contador = 0;
 
     for (let i = 0; i < array.length; i++) {
 
-        arrayString = array[i];
+       if (array[i] === buscar) {
+
+        contador++;
+
+       }
         
     }
+
+    return contador
 }
 
+// Aquí llamo a la función 
+
+let ocurrencias = contarOcurrencias(arrayString, buscar);
+
+// Para mostrar el resultado en un elemento HTML
+
+let salida = document.getElementById("resultado")
+
+salida.innerHTML=`<b> Palabra buscada: </b> ${buscar}, <b> Ocurrencia: </b> ${ocurrencias}`
