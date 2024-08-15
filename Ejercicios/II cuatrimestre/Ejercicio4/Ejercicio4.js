@@ -6,7 +6,7 @@ let arrayStrings = [
     { nombre: "Cristian", apellido: "Perez", email: "cristian@gmail.com", edad: "16" }
 ];
 
-// Definición de la función
+// Definición de la función emails
 function obtenerEmails(arrayStrings) {
     let emails = [];
 
@@ -19,8 +19,27 @@ function obtenerEmails(arrayStrings) {
     return emails;
 }
 
+// Definición de la función usuarios
+function obtenerUsuarios(arrayStrings) {
+    let usuarios = [];
+
+    arrayStrings.forEach(usuario => {
+        if (usuario.edad >= 18) {
+            usuarios.push(`${usuario.nombre} ${usuario.apellido}`);
+        }
+        
+    });
+
+    return usuarios;
+}
+
+let listaUsuarios = obtenerUsuarios(arrayStrings);
 let listaEmails = obtenerEmails(arrayStrings);
 
-// Salida
-let salida = document.getElementById("resultado");
-salida.innerHTML = `Lista de emails: ${listaEmails.join(", ")}`;
+// Salida para mostrar emails
+let salidaEmails = document.getElementById("resultadoEmails");
+salidaEmails.innerHTML = `Lista de emails: ${listaEmails.join(", ")}`;
+
+// Salida para mostrar usuarios
+let salidaUsuarios = document.getElementById("resultadoUsuarios");
+salidaUsuarios.innerHTML = `Lista de usuarios: ${listaUsuarios.join(", ")}`;
