@@ -4,11 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Progamación Web</title>
+    <style>
+        th, td {
+            
+            border: 1px solid black
+
+        }
+    </style>
 </head>
 <body>
-    <h1> Ejercicio Información de usuarios </h1>
-    <p id="resultadoEmails"></p>
-    <p id="resultadoUsuarios"></p>
+    <h1> Tabla de usuarios mayores de edad </h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="tablaUsuarios"></tbody>
+    </table>
     <script src="./Ejercicio4.js"></script>
     
 </body>
