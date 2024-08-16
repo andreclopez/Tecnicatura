@@ -10,7 +10,6 @@ const tablaUsuarios = document.getElementById("tablaUsuarios")
 // let htmlString = ""
 
 usuarios.forEach(usuario => {
-    if (usuario.edad >= 18)
     tablaUsuarios.innerHTML += `
     <tr>
         <td>${usuario.nombre}</td>
@@ -20,4 +19,17 @@ usuarios.forEach(usuario => {
     `
 })
 
+const tablaUsuariosMayores = document.getElementById("tablaUsuariosMayores")
+
+usuarios.forEach(usuario => {
+    if (usuario.edad >= 18)
+    tablaUsuariosMayores.innerHTML += `
+    <tr>
+        <td>${usuario.nombre}</td>
+        <td>${usuario.apellido}</td>
+        <td>${usuario.email}</td>
+    <tr>
+    `
+})
+    
 // tablaUsuarios.innerHTML = htmlString
