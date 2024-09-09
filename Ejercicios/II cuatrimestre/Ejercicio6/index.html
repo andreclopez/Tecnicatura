@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programación Web</title>
+    <title> Programación Web </title>
 </head>
 <body>
-    <h1>Verificar Palindromo</h1>
-    <button onclick="verificarPalindromo()">Verificar</button>
-    <p id="resultado"></p>
-    <script src="./Ejercicio6.js"></script>
+    <h1>Verificar Palíndromo</h1>
+    <input type="text" id="wordInput" placeholder="Ingresa una palabra">
+    <button onclick="checkPalindrome()">Verificar</button>
+    <p id="result"></p>
+
+    <script>
+        function checkPalindrome() {
+            const word = document.getElementById('wordInput').value;
+            const cleanedWord = word.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const reversedWord = cleanedWord.split('').reverse().join('');
+            const isPalindrome = cleanedWord === reversedWord;
+
+            document.getElementById('result').textContent = isPalindrome ? 'Es un palíndromo' : 'No es un palíndromo';
+        }
+    </script>
+    
 </body>
 </html>

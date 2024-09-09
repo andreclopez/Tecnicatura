@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Programación Web </title>
+</head>
+<body>
+    <h1>Encuentra el Elemento Más Repetido</h1>
+    <form id="formularioElemento">
+        <label for="elementoIngresado">Ingresa los elementos separados por comas:</label>
+        <input type="text" id="elementoIngresado" name="elementoIngresado" required>
+        <button type="button" id="botonElementoRepetido">Encontrar Elemento</button>
+    </form>
+    <p id="resultado"></p>
+
+    <script>
+        function elementoMasRepetido(array) {
+            let frecuencia = {};
+            let maxFrecuencia = 0;
+            let elementoMasComun = null;
+
+            for (const elemento of array) {
+                frecuencia[elemento] = (frecuencia[elemento] || 0) + 1;
+                if (frecuencia[elemento] > maxFrecuencia) {
+                    maxFrecuencia = frecuencia[elemento];
+                    elementoMasComun = elemento;
+                }
+            }
+
+            return elementoMasComun;
+        }
+
+        document.getElementById('botonElementoRepetido').addEventListener('click', () => {
+            // Obtener texto y convertirlo en un array
+            let array = document.getElementById('elementoIngresado').value.split(',').map(item => item.trim());
+            let resultado = elementoMasRepetido(array);
+
+            // Mostrar resultado
+            document.getElementById('resultado').innerText = `El elemento que más se repite es: ${resultado}`;
+        });
+    </script>
+</body>
+</html>

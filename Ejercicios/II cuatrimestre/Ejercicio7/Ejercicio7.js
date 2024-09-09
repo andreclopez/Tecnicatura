@@ -1,33 +1,50 @@
 // Escribe una función que reciba un array de números y los ordene de forma
 // ascendente. Muestra el resultado en un elemento HTML.
 
-let arrayNumeros = [1, 5, 6, 8, 12, 16, 20, 50, 60, 65, 87, 2, 26]
+// Primera opcion de solucion
 
-let arrayAuxiliar = []
-let arrayAxiliar1 = []
-let arrayOrdenado = []
-let numeroMenor = null;
+// let arrayNumeros = [1, 5, 6, 8, 12, 16, 20, 50, 60, 65, 87, 2, 26] 
 
-arrayAuxiliar = arrayNumeros;
+// let arrayAuxiliar = []
+// let arrayAxiliar1 = []
+// let arrayOrdenado = []
+// let numeroMenor = null;
 
-for (let i = 0; i < arrayNumeros.length; i++) {
+// arrayAuxiliar = arrayNumeros;
 
-    arrayNumeros.forEach (numero => {
-        if (numero < numeroMenor || numeroMenor === null) {
-            numeroMenor = numero
-        }
-    })
+// for (let i = 0; i < arrayNumeros.length; i++) {
 
-    arrayOrdenado.push(numeroMenor)
+//    arrayNumeros.forEach (numero => {
+//        if (numero < numeroMenor || numeroMenor === null) {
+//            numeroMenor = numero
+//        }
+//    })
 
-    arrayAuxiliar1 = arrayAuxiliar
-    arrayAuxiliar = []
+//    arrayOrdenado.push(numeroMenor)
 
-    arrayAuxiliar.forEach (nuemro => {
-        if(numero != numeroMenor) {
-            arrayNumeros.push(numero)
-        }
-    })
+//    arrayAuxiliar1 = arrayAuxiliar
+//    arrayAuxiliar = []
 
-    arrayOrdenado.push(numeroMenor)
+//    arrayAuxiliar.forEach (numero => {
+//        if(numero != numeroMenor) {
+//           arrayNumeros.push(numero)
+//        }
+//    })
+
+//    arrayOrdenado.push(numeroMenor)
+// }
+
+// Segunda opcion
+
+function ordenarAscendente(arrayDesordenado) {
+    return arrayDesordenado.sort((a, b) => a - b);
 }
+
+document.getElementById('botonOrdenarCadena').addEventListener('click', () => {
+    // obtener resultado
+    let numerosDesordenados = document.getElementById('cadenaDesordenada').value;
+    let arrayDesordenado = numerosDesordenados.split(';').map(Number); // Convertir a números
+
+    // mostrar resultado
+    document.getElementById("resultado").innerHTML = ordenarAscendente(arrayDesordenado).join(';'); // Convertir de nuevo a cadena
+});

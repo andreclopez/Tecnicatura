@@ -3,11 +3,11 @@
 
 // Realizamos una función para verificar el palíndromo
 
-function verificarPalindromo () {
-    let palabra = prompt("Por favor, ingresa una palabra");
+function checkPalindrome() {
+    const palabra = document.getElementById('wordInput').value;
+    const cleanedWord = palabra.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const reversedWord = cleanedWord.split('').reverse().join('');
+    const esPalindromo = cleanedWord === reversedWord;
 
-    if (palabra) {
-        
-        let 
-    }
+    document.getElementById('resultado').textContent = esPalindromo ? 'Es un palíndromo' : 'No es un palíndromo';
 }

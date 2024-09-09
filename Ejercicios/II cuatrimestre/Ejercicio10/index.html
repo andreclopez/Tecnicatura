@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Programación Web </title>
+</head>
+<body>
+    <h1>Contador de Vocales</h1>
+    <input type="text" id="textoIngresado" placeholder="Escribe algo aquí">
+    <button id="botonContar">Contar Vocales</button>
+    <p id="resultado"></p>
+
+    <script>
+        function contarVocales(cadena) {
+            let contador = 0;
+            const vocales = "aeiouAEIOU";
+            for (let letra of cadena) {
+                if (vocales.includes(letra)) {
+                    contador++;
+                }
+            }
+            return contador;
+        }
+
+        document.getElementById('botonContar').addEventListener('click', () => {
+            // obtener texto
+            let texto = document.getElementById('textoIngresado').value;
+            let numeroDeVocales = contarVocales(texto);
+
+            // mostrar resultado
+            document.getElementById("resultado").innerHTML = `Número de vocales: ${numeroDeVocales}`;
+        });
+    </script>
+</body>
+</html>
