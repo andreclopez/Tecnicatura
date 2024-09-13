@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    color: wheat;
+}
+
+header, footer {
+    text-align: center;
+    padding: 20px;
+    background-color: gray;
+}
+
+.containerPiePagina {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: gray;
+    color: wheat;
+}
+.secundario {
+    text-align: left;
+    margin: 0;
+}
+
+.footer {
+    text-align: right;
+    margin: 0;
+}
+/* Flexbox para alinear los elementos dentro de cada `<article>` y para organizar los artículos dentro de la
+sección */
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1 1 33%;
+    background-color: #444;
+    margin: 10px;
+    padding: 20px;
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Estilos básicos a los títulos, párrafos e imágenes para mejorar la presentación de la página */
+
+h1{
+    font-size: 3rem;
+    color: rgb(238, 189, 129);
+}
+
+h2{
+    font-size: 2rem;
+    color: wheat;
+}
+
+p{
+    font-size: 1.5rem;
+    color: rgb(238, 189, 129);
+}
+
+.seccionPrincipal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+
+}
+
+.articuloPrincipal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1 1 33%;
+    background-color: grey;
+    margin: 10px;
+    padding: 20px;
+}
+
+/* Configuración de imágenes para que sean fluidas y no excedan el ancho del contenedor */
+
+.articuloPrincipal img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Estilo para los enlaces */
+
+.imgCompleta {
+    width: 100%;
+    height: auto;
+}
+
+.seccionImg {
+    padding: 20px;
+    text-align: center;
+}
+
+.seccionImg {
+    font-size: 1.5rem;
+    color: rgb(238, 189, 129);
+    margin-top: 20px;
+}
+
+/* Media Querie Pantallas pequeñas (menos de 600px de ancho): Los artículos deben apilarse en una sola columna, 
+asegurarse de que el texto y las imágenes sean legibles y visibles en pantallas pequeñas. */
+
+@media (max-width: 599px) {
+    .articuloPrincipal {
+        flex: 1 1 100%;
+    } 
+    h1{
+        font-size: 2rem;
+    }
+    
+    h2{
+        font-size: 2rem;
+    }
+    
+    p{
+        font-size: 1rem;
+    }
+}
+
+/* Media Querie Pantallas medianas (entre 600px y 900px de ancho): Los artículos deben mostrarse en dos columnas,
+ajustar el tamaño del texto y las imágenes para adaptarse al espacio disponible. */
+
+@media (min-width: 600px) and (max-width: 899px) {
+    .articuloPrincipal {
+        flex: 1 1 45%;
+    }
+
+    h1{
+        font-size: 2rem;
+    }
+    
+    h2{
+        font-size: 2rem;
+    }
+    
+    p{
+        font-size: 1.2rem;
+    }
+}
+/* Media Querie Pantallas grandes (más de 900px de ancho): Los artículos deben mostrarse en tres columnas,
+aplicar un espacio uniforme entre las columnas y ajustar el contenido para una mejor legibilidad. */
+
+@media (min-width: 900px) {
+    .articuloPrincipal {
+        flex: 1 1 30%;
+    }
+}
