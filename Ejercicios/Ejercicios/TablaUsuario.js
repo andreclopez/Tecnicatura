@@ -16,6 +16,7 @@ function updateTablaUsuarios() {
                 <td>${user.nombre}</td>
                 <td>${user.email}</td>
                 <td>${user.edad}</td>
+                <td><button type="button" id="Eliminar">Eliminar</button></td>
             </tr>
         `;
     });
@@ -51,3 +52,7 @@ document.getElementById("guardar").addEventListener("click", () => {
     document.getElementById("email").value = "";
     document.getElementById("edad").value = "";
 });
+
+document.querySelector(".Eliminar").addEventListener("click",() =>{
+    console.log("click")
+})
