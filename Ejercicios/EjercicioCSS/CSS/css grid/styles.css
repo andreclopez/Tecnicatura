@@ -85,8 +85,8 @@ img, video {
 .imgProyect {
     width: auto; 
     height: auto;
-    display: block;
-    margin: 0;
+    justify-self: center;
+    align-self: center;
 }
 
 .footerProyect {
