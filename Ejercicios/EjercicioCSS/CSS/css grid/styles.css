@@ -26,11 +26,11 @@ body {
 
 header, footer, section {
     grid-column: 1 / span 3;
-    padding: 50px;
+    padding: 20px;
 }
 
 h1, h2, h3, p {
-    margin: 0;
+    margin: 10px;
     padding: 10px 0;
     text-align: center;
 }
@@ -82,11 +82,17 @@ img, video {
     margin-bottom: 20px;
 }
 
-.imgProyect, .videoProyect {
-    width: 100%; 
+.imgProyect {
+    width: auto; 
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin: 0;
+}
+
+.footerProyect {
+    text-align: center;
+    padding: 20px;
+    background-color: bisque;
 }
 
 /* Media query pantallas pequeñas (menos de 600px de ancho) */
@@ -99,25 +105,16 @@ img, video {
     .gridContainer {
         grid-template-rows: repeat(1, 100px);
     }
+    
     .mainProyect {
-        display: grid;
         grid-template-columns: 1fr; 
-        grid-template-rows: auto auto auto; 
-        gap: 20px;
-        padding: 20px;
+        grid-template-rows: auto auto; 
     }
 
-    .mainProyect p {
-        grid-column: 1 / -1; 
-        margin-bottom: 20px;
+    .imgProyect {
+        width: 80%; 
     }
 
-    .imgProyect, .videoProyect {
-        width: 100%; 
-        height: auto;
-        display: block;
-        margin: 0 auto; 
-    }
 }
 
 /* Pantallas medianas (entre 600px y 900px de ancho) */
@@ -130,24 +127,14 @@ img, video {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
     }
+
     .mainProyect {
-        display: grid;
         grid-template-columns: 1fr; 
-        grid-template-rows: auto auto auto; 
-        gap: 20px;
-        padding: 20px;
+        grid-template-rows: auto auto; 
     }
 
-    .mainProyect p {
-        grid-column: 1 / -1; 
-        margin-bottom: 20px;
-    }
-
-    .imgProyect, .videoProyect {
-        width: 100%; 
-        height: auto;
-        display: block;
-        margin: 0 auto; 
+    .imgProyect {
+        width: 80%; 
     }
 
 }
