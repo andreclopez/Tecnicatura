@@ -1,58 +1,73 @@
 function updateTablaUsuarios() {
-    const tablaUsuarios = document.getElementById("tablaUsuarios");
+    const tablaUsuarios = document.getElementById("tablaUsuarios")
     const localStorage = window.localStorage;
     
-    tablaUsuarios.innerHTML = "";
+    tablaUsuarios.innerHTML = ""
 
-    let usuarios = JSON.parse(localStorage.getItem("users"));
+    let usuarios = JSON.parse(localStorage.getItem("users"))
     
     if (usuarios === undefined || usuarios === null) {
-        usuarios = [];
+        usuarios = []
     }
 
     usuarios.forEach(user => {
         tablaUsuarios.innerHTML += `
-            <tr>
+            <tr id="${user.email}">
+
                 <td>${user.nombre}</td>
                 <td>${user.email}</td>
                 <td>${user.edad}</td>
-                <td><button type="button" id="Eliminar">Eliminar</button></td>
+
+                <td>
+                    <button data-id="${user.email}" class="eliminar">Eliminar</button>
+                    <button data-id="${user.email}" class="editar">Editar</button>
+                </td>
+
             </tr>
-        `;
+        `
     });
+    
 }
 
-updateTablaUsuarios();
+updateTablaUsuarios()
 
 document.getElementById("guardar").addEventListener("click", () => {
-    let nombre = document.getElementById("nombre").value;
-    let email = document.getElementById("email").value;
-    let edad = document.getElementById("edad").value;
+    let nombre = document.getElementById("nombre")
+    let email = document.getElementById("email")
+    let edad = document.getElementById("edad")
 
     let user = {
-        nombre: nombre, 
-        email: email, 
-        edad: edad
-    };
-
-    let usuarios = JSON.parse(localStorage.getItem("users"));
-
-    if (usuarios === null) {
-        usuarios = [user];
-    } else {
-        usuarios.push(user);
+        nombre: nombre.value, 
+        email: email.value, 
+        edad: edad.value
     }
 
-    localStorage.setItem("users", JSON.stringify(usuarios));
+    let usuarios = JSON.parse(localStorage.getItem("users"))
 
-    updateTablaUsuarios();
+    if (usuarios === null) {
+        usuarios = [user]
+    } else {
+        usuarios.push(user)
+    }
 
-    // Limpiar campos
-    document.getElementById("nombre").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("edad").value = "";
-});
+    localStorage.setItem("users", JSON.stringify(usuarios))
 
-document.querySelector(".Eliminar").addEventListener("click",() =>{
-    console.log("click")
+    updateTablaUsuarios()
+})
+
+document.getElementById("tablaUsuarios").addEventListener("click", (event) => {
+    if (event.target.className === "eliminar") {
+        // Identificar usuario
+        let button = event.target;
+        let emailUsuario = button.dataset.id;
+        console.log("Usuario elegido: ", emailUsuario)
+
+        // Actualizar localStorage
+        let usuarios = JSON.parse(localStorage.getItem("users"));
+        usuarios = usuarios.filter(user => user.email !== emailUsuario);
+        localStorage.setItem("users", JSON.stringify(usuarios));
+
+        // Volver a renderizar tabla
+        updateTablaUsuarios();
+    }
 })
