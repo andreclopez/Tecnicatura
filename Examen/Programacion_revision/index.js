@@ -24,9 +24,9 @@ updateTablaArticulo();
 
 // Interacción con el botón agregar
 document.getElementById("agregar").addEventListener("click", () => {
-    let id = document.getElementById("id").value.trim();
-    let titulo = document.getElementById("titulo").value.trim();
-    let año = document.getElementById("año").value.trim();
+    let id = document.getElementById("id").value;
+    let titulo = document.getElementById("titulo").value;
+    let año = document.getElementById("año").value;
 
     Articulo.crear(id, titulo, año);
     document.getElementById("formArticulo").reset();
