@@ -4,7 +4,7 @@ function updateTablaTareas() {
     let tablaTareas = document.getElementById("tablaTarea");
     tablaTareas.innerHTML = "";
 
-    // creo un foreach para iterar por los elementos contenidos en Articulo.items
+    // creo un foreach para iterar por los elementos contenidos en el elemento estático tarea 
     Tarea.tareas.forEach(tareas => {
         tablaTareas.innerHTML += `
             <tr id="${tareas.codigo}" class="${tareas.hecha ? 'hecha' : ''}">
