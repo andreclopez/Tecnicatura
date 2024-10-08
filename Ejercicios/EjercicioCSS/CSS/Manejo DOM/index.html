@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Examen Programación: DOM y Clases </title>
+    <link rel="stylesheet" href="styles.css">
+   
+<body>
+    <h1> Programación de tareas </h1>
+
+    <form id="formTareas">
+
+        <label for="codigo"> Código de tarea  </label> 
+        <input type="number" id="codigo" placeholder="Asigna un codigo a tu tarea" required> 
+
+        <label for="tarea"> Título de tarea </label> 
+        <input type="text" id="titulo" placeholder="Escribe el título de la tarea" required> 
+
+        <label for="detalle"> Detalle de tarea </label> 
+        <input type="text" id="detalle" placeholder="Detalla la tarea" required> 
+
+        <label for="dia"> Día programado </label> 
+        <input type="date" id="dia" placeholder="Día programado para la tarea" required> 
+
+        <label for="horario"> Horario programado </label> 
+        <input type="time" id="horario" placeholder="Horario programado para la tarea" required> <br> <br>
+
+        <button type="button" id="agregar">Agregar tarea</button>
+    </form>
+
+    <h2>Lista de Tareas </h2>
+
+    <table id="tabla">
+        <thead>
+            <tr>
+                <th>Código de tarea </th>
+                <th>Título de tarea </th>
+                <th>Detalle de tarea </th>
+                <th>Día programado </th>
+                <th>Horario programado </th>
+                <th>Tarea realizada </th>
+            </tr>
+        </thead>
+        <tbody id="tablaTarea"></tbody>
+    </table>
+    <script type="module" src="./index.js"></script>
+</body>
+</html>
