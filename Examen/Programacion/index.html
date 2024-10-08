@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Examen Programación: DOM y Clases </title>
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td{
+            padding: 5px;
+            text-align: center;
+        }
+        
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1> Formulario de Producto </h1>
+    <form id="formProducto">
+        <label for="id"> ID Producto: </label>
+        <input type="text" id="id" placeholder="ID Producto" required> <br> <br>
+
+        <label for="titulo"> Titulo Producto: </label>
+        <input type="text" id="id" placeholder="Titulo Producto" required> <br> <br>
+
+        <label for="año"> Año del Producto: </label>
+        <input type="text" id="id" placeholder="Año del Producto" required> <br> <br>
+
+        <button type="button" id="agregar"> Agregar Producto</button>
+
+    </form>
+
+    <h2> Lista de Productos </h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID Producto </th>
+                <th>Titulo Producto </th>
+                <th>Año del Producto </th>
+            </tr>
+        </thead>
+        <tbody id="tablaProducto"></tbody>
+    </table>
+    <script type="module" src="./index.js"></script>
+</body>
+</html>
