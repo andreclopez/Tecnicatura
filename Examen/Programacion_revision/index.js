@@ -5,7 +5,7 @@ function updateTablaArticulo() {
     let tablaArticulo = document.getElementById("tablaArticulo");
     tablaArticulo.innerHTML = "";
 
-    // creo un foreach para iterar por los elementos contenidos en Articulo.items
+    // creo un foreach
     Articulo.items.forEach(articulo => {
         tablaArticulo.innerHTML += `
             <tr id="${articulo.id}">
