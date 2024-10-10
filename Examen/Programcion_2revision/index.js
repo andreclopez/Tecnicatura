@@ -2,7 +2,7 @@ import Articulo from "./classes/I_Articulo.js";
 
 function updateTablaArticulo() {
     let tablaArticulo = document.querySelector(".tablaArticulo");
-    tablaArticulo.innerHTML = "";
+    tablaArticulo.innerHTML="";
 
     Articulo.items.forEach(articulo => {
         tablaArticulo.innerHTML += `
