@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.header {
+    grid-column: span 3;
+    text-align: center;
+    background-color: rgb(184, 48, 184);
+    color: white;
+    padding: 10px 0;
+}
+
+.mainSection {
+    display: grid;
+    grid-column: 2 / span 1;
+    gap: 20px;
+    padding: 20px;
+}
+
+.tarjetaProducto {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.tarjetaProducto:hover {
+    transform: scale(1.05);
+}
+
+.tarjetaProducto img {
+    width: 100%;
+    height: auto;
+}
+
+.tarjetaProducto p {
+    margin: 10px;
+}
+
+.tarjetaProducto button {
+    background-color: rgb(184, 48, 184);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tarjetaProducto button:hover {
+    background-color: rgb(116, 2, 116);
+}
