@@ -67,3 +67,10 @@ body {
 .tarjetaProducto button:hover {
     background-color: rgb(116, 2, 116);
 }
+
+.imgTarjetaProducto {
+    width: 5%; 
+    height: 5%;
+    justify-self: center;
+    align-self: center;
+}
