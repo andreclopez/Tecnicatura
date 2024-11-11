@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de productos</title>
+    <link href="../output.css" rel="stylesheet">
+</head>
+<body class="p-10 bg-violet-50">
+    <header class="h-[40px] box">
+        <nav class="h-[40px] flex justify-between items-center mx-[10px]">
+            <a href="../html/ListaProductos.html"><img class="h-[40px]" src="../assest/online-shop.png" alt="Logo"></a>
+            <div class="text-center text-3xl font-extrabold flex-1">    
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">Tienda online</span>  
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="../html/PaginaPrincipal.html">HOME</a>
+                <a href="#">RUTA</a>
+                <a href="../html/cartProductos.html" class="flex items-center space-x-1"> <img class="h-[25px]" src="../assest/CartProducto.png" alt="Carrito de compras"> <span id="contadorCart" class="bg-violet-400 inline-block h-[25px] w-[25px] border text-center leading-[20px] rounded-full hover:bg-violet-700">0</span> </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="mainSection grid grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))] gap-4 justify-center mt-10" id="vistaProductos">
+            <!-- Los productos se insertarán aquí -->
+        </section>
+    </main> 
+    <footer class="mt-4 text-center">
+        <p>Tienda online</p>
+        <p> By Andrea Lopez - Derechos reservados &copy;2024</p>
+    </footer>
+    <script type="module" src="../js/ListaProductos.js"></script>
+</body>
+</html>
+
+

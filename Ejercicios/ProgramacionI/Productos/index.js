@@ -25,7 +25,9 @@ function updateTablaProducto(){
                     <button data-codigo="${producto.codigo}" class="eliminar">Eliminar</button>
                     <button data-codigo="${producto.codigo}" class="editar">Editar</button>
                 </td>
-                <td>${producto.imgProduct}</td>
+                <td>
+                    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTvloDYpQHNy57n7Pnm82-fVzd36C9ELR-6Qodk5w4v_3C3ex-6yqcqZPUGlWwyTYzcCJvGRzISFIM8gSOcwJFpcUxEivpghDFIeHWFLvq8P4N6ldgA6Aapjn7KnF3eSg1BA4-w3yI&usqp=CAc"
+                </td>
         </tr>
 
         `;

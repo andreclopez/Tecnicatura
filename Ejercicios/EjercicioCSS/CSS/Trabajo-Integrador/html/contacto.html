@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan, el desarrollador</title>
+    <link rel="shortcut icon" href="../assets/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/contacto.css">
+</head>
+<body>
+  <header>
+    <img class="logo" src="../assets/juan.png" alt="Logo">
+    <button class="abrirMenu" id="abrirMenu"><i class="bi bi-list"></i></button>
+    <nav class="nav" id="nav">
+      <button class="cerrarMenu" id="cerrarMenu"><i class="bi bi-x-circle"></i></button>
+      <ul class="listaNav">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./preferencias.html">Preferencias</a></li>
+        <li><a href="./audiovisuales.html">Audiovisuales</a></li>
+        <li><a href="./contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h1>JUAN, TU DESARROLLADOR DE CONFIANZA</h1>
+  <hr> <br>
+  <h2 class="subtitulo"><i>Contacta conmigo</i></h2> <br>
+  <hr> <br>
+  
+    <div class="contenedor">
+        <form>
+            <label for="nombre">Nombre: </label>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribi aqui tu nombre" required minlength="3">
+            <label for="mail">Email: </label>
+            <input type="email" id="mail" name="mail" placeholder="Escribi aqui tu mail" required>
+            <label for="pais">País: </label>
+            <select name="pais" id="pais">
+                <option value="Argentina">Argentina</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Chile">Chile</option>
+                <option value="Colombia">Colombia</option>
+            </select>
+            <label for="comentario">Comentario: </label>
+            <textarea name="comentario" id="comentario" placeholder="Escribí quí tu comentario"></textarea>
+
+            <input type="submit" value="Enviar">
+        </form>
+
+    </div>
+
+
+
+  <footer class="footer">
+    <p>Derechos reservados &copy;2024</p>
+  </footer>
+  <script src="../Js/index.js"></script>
+</body>
+</html>

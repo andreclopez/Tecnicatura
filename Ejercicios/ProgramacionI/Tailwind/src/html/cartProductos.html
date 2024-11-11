@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link href="../output.css" rel="stylesheet">
+</head>
+<body class="p-10 bg-violet-50">
+    <header class="h-[40px] box">
+        <nav class="h-[40px] flex justify-between items-center mx-[10px]">
+            <a href="../html/ListaProductos.html"><img class="h-[40px]" src="../assest/online-shop.png" alt="Logo"></a>
+            <div class="text-center text-3xl font-extrabold flex-1">    
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">Bienvenido a tu carrito de compras</span>  
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="../html/PaginaPrincipal.html">HOME</a>
+                <a href="#">RUTA</a>
+                <a href="../html/cartProductos.html" class="flex items-center space-x-1">
+                    <img class="h-[25px]" src="../assest/CartProducto.png" alt="Carrito de compras">
+                    <span id="contadorCart" class="bg-violet-400 inline-block h-[25px] w-[25px] border text-center leading-[20px] rounded-full hover:bg-violet-700">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <p id="cartVacio" class="text-center mt-10">Ups! El carrito está vacío, <a href="../html/ListaProductos.html">elige algunos productos</a></p>
+        <section id="contenedorCart" class="max-w-[500px] m-auto"></section>
+        <section id="totales" class="text-center">
+            <p>Total unidades: <span id="cantidad">0</span></p>
+            <p>Total precio: $<span id="precio">0</span></p>
+            <button id="comprar" class="bg-violet-600 hover:bg-violet-300 text-white font-bold py-2 px-4 rounded">Comprar</button>
+            <button id="reiniciar" class="bg-violet-600 hover:bg-violet-300 text-white font-bold py-2 px-4 rounded">Reiniciar</button> 
+        </section>
+    </main>
+    <footer class="mt-4 text-center">
+        <p>Tienda online</p>
+        <p> By Andrea Lopez - Derechos reservados &copy;2024</p>
+    </footer>
+    <script type="module" src="../js/cartProductos.js"></script>
+</body>
+</html>
+
+
