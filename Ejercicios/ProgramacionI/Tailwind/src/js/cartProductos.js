@@ -1,115 +1,71 @@
-import Producto from "../../Classes/Producto.js";
-import Cart from "../../Classes/Carrito.js";
+import ProductoCarrito from "../../Classes/Carrito.js";
 
-let contenedorTarjetas = document.getElementById("contenedorCart");
-let cantidadElement = document.getElementById("cantidad");
-let precioElement = document.getElementById("precio");
-let carritoVacioElement = document.getElementById("cartVacio");
-let contenedorTotales = document.getElementById("totales");
+function vistaProductos() {
+    let vistaProductosCart = document.getElementById("carrito");
+    let total = 0;
+    vistaProductosCart.innerHTML = "";
 
-/** Crea las tarjetas de productos teniendo en cuenta lo guardado en localstorage */
-function crearTarjetasProductosCarrito() {
-    contenedorTarjetas.innerHTML = "";
-    let productos = Cart.itemsCart;
-
-    if (productos.length > 0) {
-        productos.forEach((item) => {
-            let producto = item.producto;
-            let tarjetaProducto = document.createElement("div");
-            tarjetaProducto.classList = "tarjeta-producto bg-violet-200 rounded-lg border border-gray-200 shadow-md overflow-hidden my-4";
-
-            tarjetaProducto.innerHTML = `
-                <div class="p-4 flex justify-between items-center">
-                    <div class="flex items-center">
-                        <img class="w-24 h-24 object-cover mr-4" src="${producto.imgProduct}" alt="${producto.nombre}">
+    ProductoCarrito.todosLosItems.forEach(item => {
+        total += item.subtotal;
+        vistaProductosCart.innerHTML += `
+            <div class="flex gap-4 bg-white px-4 py-6 rounded-md shadow-[0_2px_12px_-3px_rgba(6,81,237,0.3)]">
+                <div class="flex gap-4">
+                    <div class="w-28 h-28 max-sm:w-24 max-sm:h-24 shrink-0">
+                        <img src='${item.producto.imgProduct}' alt='Imagen del producto' class="w-full h-full object-contain" />
+                    </div>
+                    <div class="flex flex-col gap-4">
                         <div>
-                            <h5 class="text-xl font-semibold mb-2">${producto.nombre}</h5>
-                            <p class="text-gray-700 mb-2">${producto.descripcion}</p>
-                            <p class="text-gray-900 font-bold mb-4">Precio: $${producto.precio}</p>
-                            <div class="flex items-center">
-                                <label for="cantidad-${producto.codigo}" class="mr-2">Cantidad:</label>
-                                <input type="number" id="cantidad-${producto.codigo}" class="cantidad border rounded px-2 py-1 w-16" value="${item.cantidad}" min="1" data-codigo="${producto.codigo}">
-                            </div>
+                            <h3 class="text-base font-bold text-gray-800">${item.producto.nombre}</h3>
+                            <p class="text-sm font-semibold text-gray-500 mt-2">Descripción: ${item.producto.descripcion}</p>
+                        </div>
+                        <div class="mt-auto flex items-center gap-3">
+                            <button type="button" class="restarCantidad flex items-center justify-center w-5 h-5 bg-gray-400 outline-none rounded-full" data-codigo="${item.producto.codigo}">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-2 fill-white" viewBox="0 0 124 124">
+                                    <path d="M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z" data-original="#000000"></path>
+                                </svg>
+                            </button>
+                            <span id="cant-${item.producto.codigo}" class="font-bold text-sm leading-[18px]">${item.cantidad}</span>
+                            <button type="button" class="sumarCantidad flex items-center justify-center w-5 h-5 bg-gray-400 outline-none rounded-full" data-codigo="${item.producto.codigo}">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-2 fill-white" viewBox="0 0 42 42">
+                                    <path d="M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" data-original="#000000"></path>
+                                </svg>
+                            </button>
                         </div>
                     </div>
-                    <button data-codigo="${producto.codigo}" class="eliminar bg-violet-600 hover:bg-violet-300 text-white font-bold py-2 px-4 rounded">Eliminar</button>
                 </div>
-            `;
-
-            contenedorTarjetas.appendChild(tarjetaProducto);
-
-            tarjetaProducto.querySelector(".eliminar").addEventListener("click", (e) => {
-                Cart.deleteProducto(e.target.dataset.codigo);
-                crearTarjetasProductosCarrito();
-                actualizarTotales();
-            });
-
-            tarjetaProducto.querySelector(".cantidad").addEventListener("change", (e) => {
-                const nuevaCantidad = parseInt(e.target.value);
-                Cart.editarProducto(e.target.dataset.codigo, nuevaCantidad);
-                crearTarjetasProductosCarrito();
-                actualizarTotales();
-            });
-        });
-
-        revisarMensajeVacio();
-        actualizarTotales();
-    }
+                <div class="ml-auto flex flex-col">
+                    <div class="flex items-start gap-4 justify-end">
+                        <button type="button" class="eliminarProducto w-4 cursor-pointer fill-gray-400" data-codigo="${item.producto.codigo}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 7a1 1 0 0 0-1 1v11.191A1.92 1.92 0 0 1 15.99 21H8.01A1.92 1.92 0 0 1 6 19.191V8a1 1 0 0 0-2 0v11.191A3.918 3.918 0 0 0 8.01 23h7.98A3.918 3.918 0 0 0 20 19.191V8a1 1 0 0 0-1-1Zm1-3h-4V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM10 4V3h4v1Z" data-original="#000000"></path>
+                                <path d="M11 17v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Zm4 0v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Z" data-original="#000000"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <h3 class="text-base font-bold text-gray-800 mt-auto">$${item.subtotal}</h3>
+                </div>
+            </div>
+        `;
+    });
+    
+    document.getElementById('total').innerHTML = `$${total}`;
 }
 
-/** Actualiza el total de precio y unidades de la página del carrito */
-function actualizarTotales() {
-    let productos = Cart.itemsCart;
-    let cantidad = 0;
-    let precio = 0;
+vistaProductos();
 
-    if (productos.length > 0) {
-        productos.forEach((item) => {
-            cantidad += item.cantidad;
-            precio += item.producto.precio * item.cantidad;
-        });
+document.getElementById('carrito').addEventListener("click", (e) => {
+    let target = e.target;
+    if (target.tagName === "svg" || target.tagName === "path") {
+        target = target.closest("button");
     }
 
-    cantidadElement.innerText = cantidad;
-    precioElement.innerText = precio;
-
-    if (precio === 0) {
-        reiniciarCarrito();
-        revisarMensajeVacio();
+    if (target && target.className.includes('sumarCantidad')) {
+        ProductoCarrito.sumarCantidad(target.dataset.codigo);
+    } else if (target && target.className.includes('restarCantidad')) {
+        ProductoCarrito.restarCantidad(target.dataset.codigo);
+    } else if (target && target.className.includes('eliminar')) {
+        ProductoCarrito.eliminar(target.dataset.codigo);
     }
-}
 
-document.getElementById("reiniciar").addEventListener("click", () => {
-    contenedorTarjetas.innerHTML = "";
-    reiniciarCarrito();
-    revisarMensajeVacio();
-});
-
-/** Muestra u oculta el mensaje de que no hay nada en el carrito */
-function revisarMensajeVacio() {
-    let productos = Cart.itemsCart;
-    let carritoVacio = productos.length === 0;
-
-    carritoVacioElement.classList.toggle("escondido", !carritoVacio);
-    contenedorTotales.classList.toggle("escondido", carritoVacio);
-}
-
-function reiniciarCarrito() {
-    Cart.cleanCart();
-    actualizarTotales();
-    revisarMensajeVacio();
-}
-
-function comprar() {
-    alert("Compra realizada con éxito");
-    Cart.cleanCart();
-    crearTarjetasProductosCarrito();
-    actualizarTotales();
-}
-
-// Inicializar la vista del carrito y añadir event listeners cuando el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', () => {
-    crearTarjetasProductosCarrito();
-    document.getElementById("comprar").addEventListener("click", comprar);
-    document.getElementById("reiniciar").addEventListener("click", reiniciarCarrito);
+    vistaProductos();
 });

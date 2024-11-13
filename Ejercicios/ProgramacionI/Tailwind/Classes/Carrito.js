@@ -1,76 +1,78 @@
 import Producto from "../../classes/Producto.js";
 
-export default class Carrito {
-    static #cartItems = [];
+export default class ProductoCarrito {
+    static #items = [];
 
-    // Inicializar el carrito desde el localStorage si existe
     static {
-        let cart = window.localStorage.getItem('cart');
-        if (cart) {
-            this.#cartItems = JSON.parse(cart).map(item => ({
-                producto: new Producto(item.producto.codigo, item.producto.nombre, item.producto.descripcion, item.producto.precio, item.producto.imgProduct),
-                cantidad: item.cantidad
-            }));
+        let productoCarrito = window.localStorage.getItem('productoCarrito');
+        if (productoCarrito) {
+            this.#items = JSON.parse(productoCarrito).map(item =>
+                new this(
+                    new Producto(item.producto.codigo, item.producto.nombre, item.producto.descripcion, item.producto.precio, item.producto.imgProduct),
+                    item.cantidad,
+                    item.subtotal
+                )
+            );
         }
     }
 
-    // Obtener todos los items del carrito
-    static get itemsCart() {
-        return this.#cartItems;
+    constructor(producto, cantidad, subtotal) {
+        this.producto = producto;
+        this.cantidad = parseInt(cantidad);
+        this.subtotal = parseFloat(subtotal);
     }
 
-    // Agregar un producto al carrito
-    static addProducto(producto, cantidad = 1) {
-        // Buscar si el producto ya está en el carrito
-        let indiceProducto = this.#cartItems.findIndex(item => item.producto.codigo === producto.codigo);
-
-        if (indiceProducto !== -1) {  // Comprobar que el producto está en el carrito
-            // Si el producto ya está en el carrito, actualizar la cantidad
-            this.#cartItems[indiceProducto].cantidad += cantidad;
-        } else {
-            // Si no está en el carrito, agregar un nuevo item
-            this.#cartItems.push({ producto, cantidad });
-        }
-
-        this.#saveCart();
+    // Obtener todos los productos
+    static get todosLosItems() {
+        return this.#items;
     }
 
-    // Eliminar un producto del carrito
-    static deleteProducto(codigoProducto) {
-        this.#cartItems = this.#cartItems.filter(item => item.producto.codigo !== codigoProducto);
-        this.#saveCart();
+    // Obtener un producto por su código
+    static obtenerProducto(codigoProducto) {
+        return this.#items.find(item => item.producto.codigo === codigoProducto);
     }
 
-    // Editar un producto del carrito
-    static editarProducto(codigoProducto, nuevaCantidad) {
-        let item = this.#cartItems.find(item => item.producto.codigo === codigoProducto);
+    // Crear
+    static crear({ producto, cantidad, subtotal }) {
+        let item = new this(producto, cantidad, subtotal);
+        this.#items.push(item);
+        this.#saveProduct();
+
+        return item;
+    }
+
+    // Sumar cantidad
+    static sumarCantidad(codigoProducto) {
+        let item = this.obtenerProducto(codigoProducto);
         if (item) {
-            item.cantidad = nuevaCantidad;
-            this.#saveCart();
-        } else {
-            console.log("Producto no encontrado en el carrito");
+            item.cantidad++;
+            item.subtotal = item.cantidad * item.producto.precio;
+            this.#saveProduct();
         }
     }
 
-    // Calcular el total del carrito
-    static get total() {
-        return this.#cartItems.reduce((total, item) => total + item.producto.precio * item.cantidad, 0);
+    // Restar cantidad
+    static restarCantidad(codigoProducto) {
+        let item = this.obtenerProducto(codigoProducto);
+        if (item) {
+            item.cantidad--;
+            if (item.cantidad <= 0) {
+                this.eliminar(codigoProducto);
+                return;
+            }
+            item.subtotal = item.cantidad * item.producto.precio;
+            this.#saveProduct();
+        }
     }
 
-    // Calcular el subtotal de un producto
-    static calcularSubtotal(codigoProducto) {
-        let item = this.#cartItems.find(item => item.producto.codigo === codigoProducto);
-        return item ? item.producto.precio * item.cantidad : 0;
+    // Eliminar un producto por su código
+    static eliminar(codigoProducto) {
+        this.#items = this.#items.filter(item => item.producto.codigo !== codigoProducto);
+        this.#saveProduct();
     }
 
-    // Guardar el carrito en el localStorage
-    static #saveCart() {
-        window.localStorage.setItem('cart', JSON.stringify(this.#cartItems));
-    }
-
-    // Limpiar el carrito (vaciarlo completamente)
-    static cleanCart() {
-        this.#cartItems = [];
-        this.#saveCart();
+    // Guardar productos 
+    static #saveProduct() {
+        window.localStorage.setItem('productoCarrito', JSON.stringify(this.#items));
     }
 }
