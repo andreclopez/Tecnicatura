@@ -7,12 +7,18 @@ function vistaProductos() {
 
     Producto.todosLosItems.forEach(producto => {
         vistaProductosElement.innerHTML += `
-            <div class="col-span-1 p-4 bg-violet-200">
-                <img src="${producto.imgProduct}" alt="Imagen del producto" class="w-full h-full object-cover">
-                <h2 class="text-lg font-bold mt-5">Producto: ${producto.nombre}</h2>
-                <p>Descripción: ${producto.descripcion}</p>
-                <p class="text-2xl font-semibold">Precio: $${producto.precio}</p>
-                <button class="addToCart focus:outline-none text-white bg-violet-600 hover:bg-violet-300 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-indigo-500 dark:hover:bg-purple-700 dark:focus:ring-purple-900" data-codigo="${producto.codigo}">Añadir al carrito</button>
+            <div class="bg-gray-100 p-2 overflow-hidden cursor-pointer">
+                <div class="bg-white flex flex-col h-full">
+                    <div class="w-full h-[250px] overflow-hidden mx-auto">
+                        <img src="${producto.imgProduct}" alt="Imagen del producto" class="h-full w-full object-cover" />
+                    </div>
+                    <div class="p-6 text-center flex-1">
+                        <h3 class="text-lg font-bold text-gray-800">${producto.nombre}</h3>
+                        <h4 class="text-lg font-bold text-gray-800">${producto.descripcion}</h4>
+                        <h5 class="text-xl text-gray-800 font-bold mt-3">$ ${producto.precio}</h5>
+                    </div>
+                    <button type="button" class="addToCart bg-gray-700 font-semibold hover:bg-gray-800 text-white text-sm px-2 py-2.5 w-full" data-codigo="${producto.codigo}">Añadir al carrito</button>
+                </div>
             </div>
         `;
     });

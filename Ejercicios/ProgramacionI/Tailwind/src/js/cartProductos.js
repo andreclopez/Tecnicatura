@@ -59,11 +59,11 @@ document.getElementById('carrito').addEventListener("click", (e) => {
         target = target.closest("button");
     }
 
-    if (target && target.className.includes('sumarCantidad')) {
+    if (target.className.includes('sumarCantidad')) {
         ProductoCarrito.sumarCantidad(target.dataset.codigo);
-    } else if (target && target.className.includes('restarCantidad')) {
+    } else if (target.className.includes('restarCantidad')) {
         ProductoCarrito.restarCantidad(target.dataset.codigo);
-    } else if (target && target.className.includes('eliminar')) {
+    } else if (target.className.includes('eliminar')) {
         ProductoCarrito.eliminar(target.dataset.codigo);
     }
 

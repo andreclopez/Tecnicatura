@@ -6,7 +6,7 @@
     <title>Visualización de productos</title>
     <link href="../output.css" rel="stylesheet">
 </head>
-<body class="p-10 bg-violet-50">
+<body class="p-10 bg-violet-50 min-h-screen flex flex-col">
     <header class="h-[40px] box">
         <nav class="h-[40px] flex justify-between items-center mx-[10px]">
             <a href="../html/ListaProductos.html"><img class="h-[40px]" src="../assest/online-shop.png" alt="Logo"></a>
@@ -23,11 +23,16 @@
             </div>
         </nav>
     </header>
-    <main>
-        <section class="mainSection grid grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))] gap-4 justify-center mt-10" id="vistaProductos">
-            <!-- Los productos se insertarán aquí -->
+    <main class="flex-grow">
+        <section>
+            <div class="font-sans p-4 mx-auto xl:max-w-7xl lg:max-w-5xl md:max-w-3xl max-w-md">
+                <h2 class="text-4xl font-extrabold text-gray-800 text-center mb-16">Mi Carrito</h2>
+                <div id="vistaProductos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!--Aquí van los productos-->
+                </div>
+            </div>
         </section>
-    </main> 
+    </main>
     <footer class="mt-4 text-center">
         <p>Tienda online</p>
         <p> By Andrea Lopez - Derechos reservados &copy;2024</p>
