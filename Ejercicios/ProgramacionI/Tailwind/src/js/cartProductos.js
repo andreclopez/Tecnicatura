@@ -52,6 +52,12 @@ function vistaProductos() {
 }
 
 vistaProductos();
+updateCarrito();
+
+function updateCarrito() {
+    let cantidadCarrito = ProductoCarrito.todosLosItems.reduce((total, item) => total + item.cantidad, 0);
+    document.getElementById("contadorCart").innerText = cantidadCarrito;
+}
 
 document.getElementById('carrito').addEventListener("click", (e) => {
     let target = e.target;
@@ -68,4 +74,5 @@ document.getElementById('carrito').addEventListener("click", (e) => {
     }
 
     vistaProductos();
+    updateCarrito();
 });
