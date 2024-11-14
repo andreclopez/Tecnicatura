@@ -2,11 +2,11 @@ import Producto from "../../Classes/Producto.js";
 import ProductoCarrito from "../../Classes/Carrito.js";
 
 function vistaProductos() {
-    let vistaProductosElement = document.getElementById("vistaProductos");
-    vistaProductosElement.innerHTML = "";
+    let vistaProductosLista = document.getElementById("vistaProductos");
+    vistaProductosLista.innerHTML = "";
 
     Producto.todosLosItems.forEach(producto => {
-        vistaProductosElement.innerHTML += `
+        vistaProductosLista.innerHTML += `
             <div class="bg-gray-100 p-2 overflow-hidden cursor-pointer">
                 <div class="bg-white flex flex-col h-full">
                     <div class="w-full h-[250px] overflow-hidden mx-auto">
