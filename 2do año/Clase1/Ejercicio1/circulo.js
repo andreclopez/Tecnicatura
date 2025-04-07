@@ -3,12 +3,13 @@
 // perimetro(): Retorna el perímetro del círculo.
 
 class Circulo {
+
     area() {
-        return Math.PI * Math.pow(this.radio, 2);
+        return parseFloat((Math.PI * Math.pow(this.radio, 2)).toFixed(2));
     }
 
     perimetro() {
-        return 2 * Math.PI * this.radio;
+        return parseFloat((2 * Math.PI * this.radio).toFixed(2));
     }
 
     constructor(radio) {
@@ -17,5 +18,5 @@ class Circulo {
 }
 
 const c = new Circulo(5);
-console.log("Area:",c.area());
-console.log("Perimetro",c.perimetro());
+console.log(c.area()); // 78.54
+console.log(c.perimetro()); // 31.42
