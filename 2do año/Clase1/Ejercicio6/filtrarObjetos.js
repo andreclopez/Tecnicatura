@@ -2,8 +2,6 @@
 // con la estructura {nombre, edad} y devuelva solo aquellos con edad mayor 
 // o igual a 18.
 
-const { calcularTotal, carrito } = require("../Ejercicio7/calcularTotal");
-
 function filtrarPorEdad(array) {
     return array.filter(objeto => objeto.edad >= 18);
 }
@@ -16,5 +14,5 @@ const personas = [
 
 ];
 
-console.log(filtrarPorEdad(personas));console.log(calcularTotal(carrito)); // El total del ejemplo corresponde a 2230
+console.log(filtrarPorEdad(personas));
 
