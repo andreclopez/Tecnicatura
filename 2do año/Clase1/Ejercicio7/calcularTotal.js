@@ -1,4 +1,4 @@
-// Ejercicio 7: Crea una función calcularTotal que reciba un array de objetos 
+// Crea una función calcularTotal que reciba un array de objetos 
 // representando productos con las propiedades {nombre, precio, cantidad}
 // y retorne el total a pagar.
 
