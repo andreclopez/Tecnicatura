@@ -13,3 +13,8 @@ const carrito = [
 ];
 
 console.log(calcularTotal(carrito)); // El total del ejemplo corresponde a 2230
+
+// Solucion en clase con reduce
+// function calcularTotal(arrayProductos){
+// return arrayProductos.reduce ((total, producto) => total + producto.precio * producto.cantidad, 0)
+//}

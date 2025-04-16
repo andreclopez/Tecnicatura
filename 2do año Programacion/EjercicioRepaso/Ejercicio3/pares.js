@@ -15,3 +15,8 @@ function filtrarPares() {
   }
   
   filtrarPares();
+
+  // Resuelto en clase
+  // function filtrarPares(arrayNumeros) {
+  // return arrayNumeros.filter(num => (num % 2 === 0))
+  // }

@@ -21,3 +21,14 @@ const buscar = "a";
 console.log(contarOcurrencias(array1, buscar)); // 3
 console.log(contarOcurrencias(array2, buscar)); // 3
 
+// function contarOcurrencias(arrayValores, valor) {
+// arrayValores.filter(val => val === valor).length
+//}
+
+// Con reduce:
+// return arrayValores.reduce((ocurrencias, val) +> ) {
+// if ( val === valor) {
+//    ocurrencias ++
+// }
+// return ocurrencias
+// }, 0)

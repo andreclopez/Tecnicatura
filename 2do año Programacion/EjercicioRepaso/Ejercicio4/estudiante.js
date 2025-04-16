@@ -18,3 +18,22 @@ class Estudiante {
 
 const estudiante = new Estudiante ("Andrea", [90, 80, 100, 70]);
 console.log("Promedio del estudiante:", estudiante.promedio());
+
+// Resuelto en clase
+// class Estudiante {
+// constructor (nombre, calificaciones) {
+// this.nombre= nombre
+// this.calificaciones = calificaciones
+//  }
+
+// promedio (){
+//  return this.calificaciones.reduce((sumatoria,calificacion) => sumatoria + calificacion, 0) / this.calificaciones.length
+// }
+//}
+
+// Con for each:
+// let sumatoria = 0 
+// return this.calificaciones.forEach((calificacion) => {
+//   sumatoria = sumatoria +calificaciones
+//})
+// return sumatoria / this.calificaciones.length

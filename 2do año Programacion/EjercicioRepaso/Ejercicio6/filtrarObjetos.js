@@ -16,3 +16,7 @@ const personas = [
 
 console.log(filtrarPorEdad(personas));
 
+// Resolucion en clase
+// function filtrarPorEdad (arrayPersonas) {
+// return arrayPersonas.filter(persona => persona.edad >= 18)
+// }
